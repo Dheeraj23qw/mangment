@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
-/**
- * Props:
- * mode = "create" | "edit"
- * eventData = event object when editing
- */
 function EventForm({ mode = "create", eventData = null }) {
   const { register, handleSubmit, reset, watch } = useForm();
   const [loading, setLoading] = useState(false);
@@ -16,6 +12,8 @@ function EventForm({ mode = "create", eventData = null }) {
   const thumbnailFile = watch("thumbnail");
   const startTime = watch("startTime");
   const endTime = watch("endTime");
+
+  const navigate = useNavigate(); // 2. Initialize the hook
 
   // ✅ Convert 24hr to AM/PM
   const formatTime = (time) => {
@@ -77,9 +75,9 @@ function EventForm({ mode = "create", eventData = null }) {
 
     // ✅ Time range formatting
     if (data.startTime && data.endTime) {
-      const formattedRange = `${formatTime(
-        data.startTime
-      )} - ${formatTime(data.endTime)}`;
+      const formattedRange = `${formatTime(data.startTime)} - ${formatTime(
+        data.endTime
+      )}`;
       formData.append("timeRange", formattedRange);
     }
 
@@ -108,6 +106,11 @@ function EventForm({ mode = "create", eventData = null }) {
         if (mode === "create") {
           reset();
           setPreview(null);
+          navigate("/my-events");
+        }
+
+        if (mode === "edit") {
+          navigate("/my-events");
         }
       }
     } catch (error) {
