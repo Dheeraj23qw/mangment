@@ -13,7 +13,7 @@ function EventForm({ mode = "create", eventData = null }) {
   const startTime = watch("startTime");
   const endTime = watch("endTime");
 
-  const navigate = useNavigate(); // 2. Initialize the hook
+  const navigate = useNavigate(); 
 
   // ✅ Convert 24hr to AM/PM
   const formatTime = (time) => {
