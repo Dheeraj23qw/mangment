@@ -256,19 +256,37 @@ eventmanager/
 ## 🚀 Installation
 
 ```bash
+
 # Clone repository
 git clone https://github.com/Dheeraj23qw/mangment.git
-cd mangment
+cd eventmanager
 
 # Frontend setup
 cd Frontend
 npm install
 npm run dev
 
-# Backend setup (open new terminal)
+# Backend setup
 cd Backend
 npm install
 nodemon
+
+---
+
+### Environment Variables  
+
+Create a `.env` file in the backend folder:
+
+
+PORT=4001
+MONGO_URI=mongodb://127.0.0.1:27017/eventmanager
+STRIPE_SECRET_KEY=sk_test_yourStripeSecretKeyHere
+
+Create a `.env` file in the fronted folder:
+
+
+VITE_STRIPE_PUBLISHABLE_KEY=pk_test_yourStripePublishableKeyHere
+
 
 
 ## 🧩 Future Enhancements  
