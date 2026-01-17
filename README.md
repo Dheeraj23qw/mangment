@@ -8,27 +8,44 @@ It is designed to be fast, scalable, and easy to use for both event creators and
 
 ---
 
-## 📸 Application Gallery
+<div align="center">
+  <h3>Core Experience</h3>
+  <table style="width: 100%;">
+    <tr>
+      <td width="33.3%"><img src="screenshots/home.png" alt="Home"><br><sub><b>Home Page</b></sub></td>
+      <td width="33.3%"><img src="screenshots/login.png" alt="Login"><br><sub><b>Login</b></sub></td>
+      <td width="33.3%"><img src="screenshots/signup.png" alt="Signup"><br><sub><b>Sign Up</b></sub></td>
+    </tr>
+  </table>
 
-<div style="display: flex; overflow-x: auto; gap: 20px; white-space: nowrap; padding: 10px; border-radius: 10px; background-color: #f6f8fa;">
-  <img src="screenshots/home.png" height="250" alt="Home" />
-  <img src="screenshots/login.png" height="250" alt="Login" />
-  <img src="screenshots/signup.png" height="250" alt="Signup" />
-  <img src="screenshots/sidebar.png" height="250" alt="Sidebar" />
-  <img src="screenshots/footer.png" height="250" alt="Footer" />
-  <img src="screenshots/eventcreate.png" height="250" alt="Create Event" />
-  <img src="screenshots/eventform.png" height="250" alt="Event Form" />
-  <img src="screenshots/searchevent.png" height="250" alt="Search Event" />
-  <img src="screenshots/joinevent.png" height="250" alt="Join Event" />
-  <img src="screenshots/joined_2.png" height="250" alt="Joined Confirmation" />
-  <img src="screenshots/my_creation.png" height="250" alt="My Creations" />
-  <img src="screenshots/mybooking.png" height="250" alt="My Bookings" />
-  <img src="screenshots/history.png" height="250" alt="History" />
-  <img src="screenshots/payment.png" height="250" alt="Payment" />
-  <img src="screenshots/notfound.png" height="250" alt="Not Found" />
+  <h3>Event Creation & Discovery</h3>
+  <table style="width: 100%;">
+    <tr>
+      <td width="33.3%"><img src="screenshots/eventcreate.png" alt="Create Event"><br><sub><b>Create Event</b></sub></td>
+      <td width="33.3%"><img src="screenshots/eventform.png" alt="Event Form"><br><sub><b>Details Form</b></sub></td>
+      <td width="33.3%"><img src="screenshots/searchevent.png" alt="Search"><br><sub><b>Search Events</b></sub></td>
+    </tr>
+  </table>
+
+  <h3>Management & Payments</h3>
+  <table style="width: 100%;">
+    <tr>
+      <td width="25%"><img src="screenshots/my_creation.png" alt="My Creation"><br><sub><b>My Events</b></sub></td>
+      <td width="25%"><img src="screenshots/mybooking.png" alt="My Booking"><br><sub><b>My Bookings</b></sub></td>
+      <td width="25%"><img src="screenshots/payment.png" alt="Payment"><br><sub><b>Checkout</b></sub></td>
+      <td width="25%"><img src="screenshots/history.png" alt="History"><br><sub><b>History</b></sub></td>
+    </tr>
+  </table>
+
+  <h3>UI Components</h3>
+  <table style="width: 100%;">
+    <tr>
+      <td width="33.3%"><img src="screenshots/sidebar.png" alt="Sidebar"><br><sub><b>Sidebar Menu</b></sub></td>
+      <td width="33.3%"><img src="screenshots/joinevent.png" alt="Join"><br><sub><b>Join Event UI</b></sub></td>
+      <td width="33.3%"><img src="screenshots/notfound.png" alt="404"><br><sub><b>404 Error Page</b></sub></td>
+    </tr>
+  </table>
 </div>
-
-<p align="center"><i>(Scroll horizontally to view more screenshots)</i></p>
 
 
 
