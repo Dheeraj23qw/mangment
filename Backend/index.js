@@ -8,7 +8,7 @@ import eventRoute from "./route/event.route.js";
 import userRoute from "./route/user.route.js";
 import { createPaymentIntent } from "./controller/payment.controller.js";
 
-require('dotenv').config({ path: './.env' });
+dotenv.config();
 const app = express();
 
 app.use(cors());
