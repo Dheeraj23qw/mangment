@@ -38,50 +38,59 @@ function BookEvent() {
     }
   }, [event, navigate]);
 
-  const handlePayment = async (e) => {
-    if (e) e.preventDefault();
-    if (!stripe || !elements) return;
+const handlePayment = async (e) => {
+  if (e) e.preventDefault();
+  if (!stripe || !elements) return;
 
-    setIsProcessing(true);
+  setIsProcessing(true);
 
-    try {
-      const response = await axios.post('http://localhost:4001/payment/create-intent', {
-        amount: event.price,
-        eventId: event._id || event.id,
-        userId: userId,
-        paymentMethodType: selectedMethod
-      });
+  try {
+    const response = await axios.post('http://localhost:4001/payment/create-intent', {
+      amount: event.price,
+      eventId: event._id || event.id,
+      userId: userId,
+      paymentMethodType: selectedMethod
+    });
 
-      if (response.data.success) {
-        const { clientSecret } = response.data;
+    if (response.data.success) {
+      const { clientSecret } = response.data;
 
-        if (selectedMethod === 'card') {
-          const cardElement = elements.getElement(CardElement);
-          const result = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-              card: cardElement,
-              billing_details: { name: authUser?.username || 'Customer' },
-            },
-          });
+      if (selectedMethod === 'card') {
+        const cardElement = elements.getElement(CardElement);
+        const result = await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: cardElement,
+            billing_details: { name: authUser?.username || 'Customer' },
+          },
+        });
 
-          if (result.error) {
-            console.error(result.error.message);
-            navigate(`/payment-status/cancel`);
-          } else if (result.paymentIntent.status === 'succeeded') {
-            navigate(`/payment-status/success`);
+        if (result.error) {
+          console.error(result.error.message);
+          navigate(`/payment-status/cancel`);
+        } else if (result.paymentIntent.status === 'succeeded') {
+          // Update DB for Card Payment Success
+          try {
+            await axios.post('http://localhost:4001/payment/confirm', {
+              transactionId: result.paymentIntent.id,
+              status: 'completed'
+            });
+          } catch (dbError) {
+            console.error("Database update failed:", dbError);
           }
-        } else {
-          // Simulation for UPI/Netbanking
-          navigate(`/payment-status/success`); 
+          navigate(`/payment-status/success`);
         }
+      } else {
+        // For UPI/Netbanking Simulation (since they don't use confirmCardPayment)
+        navigate(`/payment-status/success`);
       }
-    } catch (error) {
-      console.error("Payment Error:", error);
-      navigate(`/payment-status/cancel`);
-    } finally {
-      setIsProcessing(false);
     }
-  };
+  } catch (error) {
+    console.error("Payment Error:", error);
+    navigate(`/payment-status/cancel`);
+  } finally {
+    setIsProcessing(false);
+  }
+};
 
   const paymentMethods = [
     { id: 'upi', name: 'UPI / Google Pay', icon: <Smartphone className="text-emerald-400" />, desc: 'Instant transfer via VPA' },
