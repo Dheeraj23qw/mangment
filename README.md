@@ -19,11 +19,20 @@ It is designed to be fast, scalable, and easy to use for both event creators and
 ### Signup
 [![Signup](screenshots/signup.png)](screenshots/signup.png)
 
-### Sidebar
-[![Sidebar](screenshots/sidebar.png)](screenshots/sidebar.png)
+### My Creations
+[![My Creation](screenshots/my_creation.png)](screenshots/my_creation.png)
 
-### Footer
-[![Footer](screenshots/footer.png)](screenshots/footer.png)
+### My Bookings
+[![My Booking](screenshots/mybooking.png)](screenshots/mybooking.png)
+
+### Event History
+[![History](screenshots/history.png)](screenshots/history.png)
+
+### Payment
+[![Payment](screenshots/payment.png)](screenshots/payment.png)
+
+### Not Found
+[![Not Found](screenshots/notfound.png)](screenshots/notfound.png)
 
 ---
 
@@ -44,20 +53,7 @@ It is designed to be fast, scalable, and easy to use for both event creators and
 
 ---
 
-### My Creations
-[![My Creation](screenshots/my_creation.png)](screenshots/my_creation.png)
 
-### My Bookings
-[![My Booking](screenshots/mybooking.png)](screenshots/mybooking.png)
-
-### Event History
-[![History](screenshots/history.png)](screenshots/history.png)
-
-### Payment
-[![Payment](screenshots/payment.png)](screenshots/payment.png)
-
-### Not Found
-[![Not Found](screenshots/notfound.png)](screenshots/notfound.png)
 
 
 
