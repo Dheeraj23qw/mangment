@@ -10,98 +10,114 @@ It is designed to be fast, scalable, and easy to use for both event creators and
 
 <div align="center">
 
-  <h2>✨ Project Preview</h2>
-  <p><i>A glimpse of the core features, workflows, and UI experience</i></p>
+# ✨ Project Preview
+<i>A glimpse of the core features, workflows, and UI experience</i>
 
-  <br/>
+<br/>
 
-  <!-- ================= Core Experience ================= -->
-  <h3>🏠 Core Experience</h3>
-  <table width="100%" cellpadding="10">
-    <tr>
-      <td align="center" width="33%">
-        <img src="screenshots/home.png" width="260"/><br/>
-        <sub><b>Home Page</b></sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="screenshots/login.png" width="260"/><br/>
-        <sub><b>Login</b></sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="screenshots/signup.png" width="260"/><br/>
-        <sub><b>Sign Up</b></sub>
-      </td>
-    </tr>
-  </table>
+---
 
-  <br/>
+## 🏠 Core Experience
 
-  <!-- ================= Event Creation ================= -->
-  <h3>🎯 Event Creation & Discovery</h3>
-  <table width="100%" cellpadding="10">
-    <tr>
-      <td align="center" width="33%">
-        <img src="screenshots/eventcreate.png" width="260"/><br/>
-        <sub><b>Create Event</b></sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="screenshots/eventform.png" width="260"/><br/>
-        <sub><b>Event Details Form</b></sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="screenshots/searchevent.png" width="260"/><br/>
-        <sub><b>Search Events</b></sub>
-      </td>
-    </tr>
-  </table>
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/home.png" width="260" />
+      <br/>
+      <b>Home Page</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/login.png" width="260" />
+      <br/>
+      <b>Login</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/signup.png" width="260" />
+      <br/>
+      <b>Sign Up</b>
+    </td>
+  </tr>
+</table>
 
-  <br/>
+---
 
-  <!-- ================= Management ================= -->
-  <h3>💳 Management & Payments</h3>
-  <table width="100%" cellpadding="10">
-    <tr>
-      <td align="center" width="25%">
-        <img src="screenshots/my_creation.png" width="230"/><br/>
-        <sub><b>My Events</b></sub>
-      </td>
-      <td align="center" width="25%">
-        <img src="screenshots/mybooking.png" width="230"/><br/>
-        <sub><b>My Bookings</b></sub>
-      </td>
-      <td align="center" width="25%">
-        <img src="screenshots/payment.png" width="230"/><br/>
-        <sub><b>Secure Checkout</b></sub>
-      </td>
-      <td align="center" width="25%">
-        <img src="screenshots/history.png" width="230"/><br/>
-        <sub><b>Payment History</b></sub>
-      </td>
-    </tr>
-  </table>
+## 🎯 Event Creation & Discovery
 
-  <br/>
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/eventcreate.png" width="260" />
+      <br/>
+      <b>Create Event</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/eventform.png" width="260" />
+      <br/>
+      <b>Event Details Form</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/searchevent.png" width="260" />
+      <br/>
+      <b>Search Events</b>
+    </td>
+  </tr>
+</table>
 
-  <!-- ================= UI ================= -->
-  <h3>🎨 UI Components</h3>
-  <table width="100%" cellpadding="10">
-    <tr>
-      <td align="center" width="33%">
-        <img src="screenshots/sidebar.png" width="260"/><br/>
-        <sub><b>Sidebar Navigation</b></sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="screenshots/joinevent.png" width="260"/><br/>
-        <sub><b>Join Event UI</b></sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="screenshots/notfound.png" width="260"/><br/>
-        <sub><b>404 Error Page</b></sub>
-      </td>
-    </tr>
-  </table>
+---
+
+## 💳 Management & Payments
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/my_creation.png" width="230" />
+      <br/>
+      <b>My Events</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/mybooking.png" width="230" />
+      <br/>
+      <b>My Bookings</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/payment.png" width="230" />
+      <br/>
+      <b>Secure Checkout</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/history.png" width="230" />
+      <br/>
+      <b>Payment History</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 🎨 UI Components
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/sidebar.png" width="260" />
+      <br/>
+      <b>Sidebar Navigation</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/joinevent.png" width="260" />
+      <br/>
+      <b>Join Event UI</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/notfound.png" width="260" />
+      <br/>
+      <b>404 Error Page</b>
+    </td>
+  </tr>
+</table>
 
 </div>
+
 
 
 
