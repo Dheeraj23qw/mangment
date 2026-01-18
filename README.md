@@ -308,7 +308,6 @@ VITE_STRIPE_PUBLISHABLE_KEY=pk_test_yourStripePublishableKeyHere
 ## 🧩 Future Enhancements  
 
 - 🔔 Complete notification system  
-- 💳 Payment integration for paid events  
 - 📱 Mobile-friendly UI improvements  
 - 🎫 QR-code based event check-in  
 - 📊 Organizer analytics dashboard  
