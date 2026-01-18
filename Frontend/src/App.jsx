@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import React, { useEffect, lazy, Suspense } from "react"; // Added lazy and Suspense
 import Layout from "./components/Layout";
-import { useAuth } from "./context/AuthProvider";
-import { generateToken, onMessageListener } from "./notification/firebase";
 import ProtectedRoute from "./utils/protectedRoute";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -30,21 +28,7 @@ const PageLoader = () => (
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 function App() {
-  const [authUser] = useAuth();
-  useEffect(() => {
-    const initFCM = async () => {
-      if (!("Notification" in window)) return;
-      const token = await generateToken();
-      if (token) {
-        console.log("FCM Token:", token);
-      }
-    };
-    initFCM();
 
-    onMessageListener((payload) => {
-      alert(payload.notification?.title);
-    });
-  }, []);
 
   return (
     <Suspense fallback={<PageLoader />}>

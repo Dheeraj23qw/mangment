@@ -1,12 +1,13 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
-import { Mail, Lock, LogIn, X } from "lucide-react";
+import { Mail, Lock, LogIn, X, ShieldCheck } from "lucide-react"; // Added ShieldCheck
+import { AuthPopup } from "./AuthPop";
 
 function Login() {
-  const [authUser, setAuthUser] = useAuth(); // Use context to update UI instantly
+  const [authUser, setAuthUser] = useAuth();
 
   const {
     register,
@@ -14,43 +15,52 @@ function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    const userInfo = {
-      email: data.email,
-      password: data.password,
-    };
-
-    try {
-      const res = await axios.post("http://localhost:4001/user/login", userInfo);
-      if (res.data) {
-        alert("🎉 Welcome back!");
-        
-        // Save to localStorage
-        localStorage.setItem("Users", JSON.stringify(res.data.user));
-        
-        // Update Auth Context (Instantly updates Navbar/Cards)
-        setAuthUser(res.data.user);
-        
-        // Close modal
-        document.getElementById("my_modal_3").close();
-      }
-    } catch (err) {
-      if (err.response) {
-        alert("Error: " + err.response.data.message);
-      }
-    }
+const onSubmit = async (data) => {
+  const userInfo = {
+    email: data.email,
+    password: data.password,
   };
+
+  try {
+    const res = await axios.post("http://localhost:4001/user/login", userInfo);
+    
+    if (res.data) {
+      // 1. Alert the success message coming from backend
+      alert(res.data.message || "🎉 Welcome back!");
+      
+      localStorage.setItem("Users", JSON.stringify(res.data.user));
+      setAuthUser(res.data.user);
+      
+      // Close modal
+      document.getElementById("my_modal_3").close();
+    }
+  } catch (err) {
+    if (err.response) {
+      // 2. Alert the specific error message sent from your backend controller
+      const backendMessage = err.response.data.message;
+      alert(backendMessage);
+
+      // 3. Logic: If the backend says they need Social Login, switch modals automatically
+      if (backendMessage.toLowerCase().includes("social") || 
+          backendMessage.toLowerCase().includes("google")) {
+        document.getElementById("my_modal_3").close(); // Close Login
+        document.getElementById("aut_popup").showModal(); // Open Social Popup
+      }
+    } else {
+      // Handle network errors or server being down
+      alert("Network Error: Could not connect to server");
+    }
+  }
+};
 
   return (
     <div>
       <dialog id="my_modal_3" className="modal backdrop-blur-md">
         <div className="modal-box bg-[#0f172a] border border-slate-800 rounded-[2.5rem] p-10 shadow-2xl relative overflow-hidden">
           
-          {/* Decorative Glow inside modal */}
           <div className="absolute -top-10 -right-10 w-32 h-32 bg-sky-500/10 blur-[50px] rounded-full pointer-events-none"></div>
 
           <form onSubmit={handleSubmit(onSubmit)} method="dialog">
-            {/* Close Button */}
             <button
               type="button"
               className="absolute right-6 top-6 text-slate-500 hover:text-white transition-colors"
@@ -96,33 +106,53 @@ function Login() {
               {errors.password && <span className="text-xs text-red-500 ml-1">This field is required</span>}
             </div>
 
-            {/* Login Button */}
             <button className="w-full bg-sky-500 hover:bg-sky-400 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-sky-500/20 active:scale-[0.98] flex items-center justify-center gap-2 mb-6">
               <LogIn size={20} />
               Sign In
             </button>
-
-            {/* Footer */}
-            <div className="text-center">
-              <p className="text-slate-400 text-sm">
-                New here?{" "}
-                <Link
-                  to="/signup"
-                  className="text-sky-400 font-bold hover:underline ml-1"
-                  onClick={() => document.getElementById("my_modal_3").close()}
-                >
-                  Create an account
-                </Link>
-              </p>
-            </div>
           </form>
+
+          {/* --- Fast Auth Section --- */}
+          <div className="mb-6">
+            <div className="relative flex items-center justify-center mb-6">
+              <div className="w-full border-t border-slate-800"></div>
+              <span className="bg-[#0f172a] px-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest absolute">Or use fast auth</span>
+            </div>
+
+            <button 
+              type="button"
+              onClick={() => {
+                document.getElementById("my_modal_3").close(); // Close login modal
+                document.getElementById("aut_popup").showModal(); // Open social modal
+              }}
+              className="w-full bg-slate-800/40 hover:bg-slate-800 border border-slate-800 text-white py-3 rounded-2xl transition-all flex items-center justify-center gap-2 group"
+            >
+              <ShieldCheck size={18} className="text-sky-400 group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-semibold">Social Login</span>
+            </button>
+          </div>
+
+          <div className="text-center">
+            <p className="text-slate-400 text-sm">
+              New here?{" "}
+              <Link
+                to="/signup"
+                className="text-sky-400 font-bold hover:underline ml-1"
+                onClick={() => document.getElementById("my_modal_3").close()}
+              >
+                Create an account
+              </Link>
+            </p>
+          </div>
         </div>
         
-        {/* Click outside to close */}
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>
       </dialog>
+
+      {/* Social Auth Popup Modal */}
+      <AuthPopup />
     </div>
   );
 }

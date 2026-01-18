@@ -47,8 +47,8 @@ function Navbar() {
                 className="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-500 to-blue-600 p-[2px] shadow-lg shadow-sky-500/20 hover:scale-105 transition-all outline-none"
               >
                 <div className="w-full h-full rounded-full bg-[#020617] flex items-center justify-center overflow-hidden">
-                  {authUser.avatar ? (
-                    <img src={authUser.avatar} alt="Profile" className="w-full h-full object-cover" />
+                  {authUser.photoURL ? (
+                    <img src={authUser.photoURL} alt="Profile" className="w-full h-full object-cover" />
                   ) : (
                     <span className="text-sky-400 font-bold text-sm">
                       {authUser.fullname?.charAt(0).toUpperCase()}

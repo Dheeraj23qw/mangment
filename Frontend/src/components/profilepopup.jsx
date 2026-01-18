@@ -38,14 +38,14 @@ const ProfilePopup = ({ authUser, onClose }) => {
       {/* USER HEADER */}
       <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-slate-800/40 to-transparent rounded-[1.5rem] mb-2 border border-slate-800/50">
         <div className="w-12 h-12 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 border border-sky-500/30 overflow-hidden">
-          {authUser.avatar ? (
-            <img src={authUser.avatar} alt="Profile" className="w-full h-full object-cover" />
+          {authUser.photoURL ? (
+            <img src={authUser.photoURL} alt="Profile" className="w-full h-full object-cover" />
           ) : (
             <User size={24} />
           )}
         </div>
         <div className="overflow-hidden">
-          <p className="text-white font-bold text-sm truncate">{authUser.fullname}</p>
+          <p className="text-white font-bold text-sm truncate">{authUser.displayName}</p>
           <p className="text-slate-400 text-[11px] truncate">{authUser.email}</p>
         </div>
       </div>
